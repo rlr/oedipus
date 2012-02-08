@@ -655,8 +655,8 @@ else:
             ids in the results set.
 
             """
-            hits = self.raw()['hits']['hits']
-            return [int(r['_id']) for r in hits]
+            hits = self.values('title')
+            return [int(r[1]) for r in hits]
 
         def order_by(self, *fields):
             """Change @rank to _score, which ES understands."""
